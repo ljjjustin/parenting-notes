@@ -20,6 +20,7 @@ if [ ! -d .git ]; then
     git init .
     git remote add origin ${remote_url}
     git checkout --orphan gh-pages
+    git push -u origin gh-pages
 else
     git checkout gh-pages
 fi
