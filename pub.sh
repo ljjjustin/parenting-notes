@@ -26,5 +26,5 @@ else
 fi
 git add .
 git commit -m "update gh-pages branch at $(date '+%Y-%m-%d %H:%M:%S')"
-git push origin gh-pages
+git push -f origin gh-pages
 popd &> /dev/null
