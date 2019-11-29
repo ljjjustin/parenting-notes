@@ -16,9 +16,13 @@ git push origin master
 # push to gh-pages branch
 remote_url=$(git remote -v | head -1 | awk '{print $2}')
 pushd _book &> /dev/null
-git init .
-git remote add origin ${remote_url}
-git checkout --orphan gh-pages
+if [ ! -d .git ]; then
+    git init .
+    git remote add origin ${remote_url}
+    git checkout --orphan gh-pages
+else
+    git checkout gh-pages
+fi
 git add .
 git commit -m "update gh-pages branch at $(date '+%Y-%m-%d %H:%M:%S')"
 git push origin gh-pages
